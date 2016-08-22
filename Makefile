@@ -22,4 +22,4 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CPPFLAGS) -c $< -o$@
 
 clean:
-	rm -f $(OBJECTS) $(EXECUTABLE)
+	$(RM) $(OBJECTS) $(EXECUTABLE)
