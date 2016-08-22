@@ -31,3 +31,8 @@
 # Eclipse files
 .cproject
 .project
+
+# Face images
+*.tga
+*.png
+*.jpg
