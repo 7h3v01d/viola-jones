@@ -51,7 +51,7 @@ int ColorRgb::getGray() const
             + (0.07f * static_cast<float>(b)));
 }
 
-void ColorRgb::setRGBA(int r, int g, int b, int a)
+void ColorRgb::setRgba(int r, int g, int b, int a)
 {
     (void)a;
 

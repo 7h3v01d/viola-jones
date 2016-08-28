@@ -2,13 +2,12 @@ CC=g++
 CPPFLAGS=-Wall -Wextra -Wpedantic -ggdb
 LIBS=
 LDFAGS=
-SOURCES=Color.h \
-	ColorGray.cpp ColorGray.h \
-	ColorRgb.cpp ColorRgb.h \
-	File.cpp File.h \
-	Image.cpp Image.h \
+SOURCES=ColorGray.cpp \
+	ColorRgb.cpp \
+	File.cpp \
+	Image.cpp \
 	Main.cpp \
-	Tga.cpp Tga.h
+	Tga.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=viola-jones
 
@@ -22,4 +21,4 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CPPFLAGS) -c $< -o$@
 
 clean:
-	$(RM) $(OBJECTS) $(EXECUTABLE)
+	$(RM) *.o $(EXECUTABLE)

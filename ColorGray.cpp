@@ -45,7 +45,7 @@ int ColorGray::getGray() const
     return gray;
 }
 
-void ColorGray::setRGBA(int r, int g, int b, int a)
+void ColorGray::setRgba(int r, int g, int b, int a)
 {
     (void)a;
 

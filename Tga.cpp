@@ -71,7 +71,7 @@ void Tga::getColors(Color *colors) const
             int r = file.readByte();
             int g = file.readByte();
             int b = file.readByte();
-            colors[(y * imageSpecification.imageWidth) + x].setRGBA(r, g, b, 255);
+            colors[(y * imageSpecification.imageWidth) + x].setRgba(r, g, b, 255);
         }
     }
 }

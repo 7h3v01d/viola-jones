@@ -36,3 +36,6 @@
 *.tga
 *.png
 *.jpg
+
+# This project ELF file
+viola-jones
