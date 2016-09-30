@@ -60,7 +60,7 @@ class Tga
         int getWidth() const;
         int getHeight() const;
         int getBpp() const;
-        void getColors(Color *colors) const;
+        void getColors(Color *colors[]) const;
 
     private:
         Tga(File& file);

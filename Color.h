@@ -4,14 +4,14 @@
 class Color
 {
     public:
-        virtual int getBpp() const { return 0; }
-        virtual int getR() const { return 0; }
-        virtual int getG() const { return 0; }
-        virtual int getB() const {return 0; }
-        virtual int getA() const { return 0; }
-        virtual int getGray() const { return 0; }
-        virtual void setRgba(int r, int g, int b, int a) { (void)r; (void)g; (void)b; (void)a; }
-        virtual void setGray(int gray) { (void)gray; }
+        virtual int getBpp() const = 0;
+        virtual int getR() const = 0;
+        virtual int getG() const = 0;
+        virtual int getB() const = 0;
+        virtual int getA() const = 0;
+        virtual int getGray() const = 0;
+        virtual void setRgba(int r, int g, int b, int a) = 0;
+        virtual void setGray(int gray) = 0;
 
     public:
         virtual ~Color() {}

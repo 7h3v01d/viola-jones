@@ -14,8 +14,8 @@ int main(int argc, char **argv)
 
     Image face = Image::loadFromFile(std::string("face.tga"));
 
-    Color firstColor = face.getColor(0, 0);
-    Color lastColor = face.getColor(face.getWidth() - 1, face.getHeight() - 1);
+    Color& firstColor = face.getColor(0, 0);
+    Color& lastColor = face.getColor(face.getWidth() - 1, face.getHeight() - 1);
     std::cout << face.getWidth() << "x" << face.getHeight() << std::endl;
     std::cout << firstColor.getR() << ","
             << firstColor.getG() << ","

@@ -14,7 +14,7 @@ class Image
         int height;
         int bpp;
         int size;
-        Color *colors;
+        Color **colors;
 
     public:
         int getWidth() const;

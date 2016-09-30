@@ -62,7 +62,7 @@ int Tga::getBpp() const
     return imageSpecification.pixelDepth;
 }
 
-void Tga::getColors(Color *colors) const
+void Tga::getColors(Color *colors[]) const
 {
     file.setPosition(imageDataPos);
 
@@ -71,7 +71,7 @@ void Tga::getColors(Color *colors) const
             int r = file.readByte();
             int g = file.readByte();
             int b = file.readByte();
-            colors[(y * imageSpecification.imageWidth) + x].setRgba(r, g, b, 255);
+            colors[(y * imageSpecification.imageWidth) + x]->setRgba(r, g, b, 255);
         }
     }
 }

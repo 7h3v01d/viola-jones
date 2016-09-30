@@ -14,11 +14,17 @@ Image::Image(int width, int height, int bpp)
     this->height = height;
     this->bpp = bpp;
     size = width * height * (bpp / 8);
-    colors = new ColorRgb[width * height];
+    colors = new Color*[width * height];
+    for (int i = 0; i < width * height; ++i) {
+        colors[i] = new ColorRgb();
+    }
 }
 
 Image::~Image()
 {
+    for (int i = 0; i < width * height; ++i) {
+        delete colors[i];
+    }
     delete[] colors;
 }
 
@@ -54,7 +60,7 @@ Color& Image::getColor(int x, int y) const
         throw std::out_of_range(std::string("invalid coordinates"));
     }
 
-    return colors[(y * width) + x];
+    return *colors[(y * width) + x];
 }
 
 /**
@@ -75,7 +81,7 @@ Image& Image::loadTga(File& file)
     Tga tga(file);
 
     Image *image = new Image(tga.getWidth(), tga.getHeight(), tga.getBpp());
-    //tga.getColors(image->colors);
+    tga.getColors(image->colors);
 
     return *image;
 }
