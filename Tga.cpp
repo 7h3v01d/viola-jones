@@ -29,7 +29,7 @@ Tga::Tga(File& file):
     if (0 == imageSpecification.imageWidth
             || 0 == imageSpecification.imageHeight
             || 24 != imageSpecification.pixelDepth
-           // || TOP_LEFT != imageSpecification.imageDescriptor.imageOrigin
+            || TOP_RIGHT != imageSpecification.imageDescriptor.imageOrigin
            // || 0 != imageSpecification.imageDescriptor.unused
             ) {
         throw std::runtime_error(std::string("unsupported tga"));
@@ -66,11 +66,11 @@ void Tga::getColors(Color *colors[]) const
 {
     file.setPosition(imageDataPos);
 
-    for (int y = 0; y < imageSpecification.imageHeight; ++y) {
+    for (int y = imageSpecification.imageHeight - 1; y >= 0; --y) {
         for (int x = 0; x < imageSpecification.imageWidth; ++x) {
-            int r = file.readByte();
-            int g = file.readByte();
             int b = file.readByte();
+            int g = file.readByte();
+            int r = file.readByte();
             colors[(y * imageSpecification.imageWidth) + x]->setRgba(r, g, b, 255);
         }
     }
