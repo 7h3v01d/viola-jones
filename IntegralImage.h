@@ -1,45 +1,29 @@
-#include "IntegralImage.h"
+#ifndef __INTEGRALIMAGE_H__
+#define __INTEGRALIMAGE_H__
 
-IntegralImage::IntegralImage(int width, int height)
+#include "Image.h"
+
+
+class IntegralImage
 {
-    this->width = width;
-    this->height = height;
-    integrals = new int[width * height];
-}
+    private:
+        int width;
+        int height;
+        int *integrals;
 
-IntegralImage::~IntegralImage()
-{
-    delete[] integrals;
-}
+    public:
+        int getWidth() const;
+        int getHeight() const;
+        int getIntegral(int x, int y) const;
 
-int IntegralImage::getWidth() const
-{
-    return width;
-}
+    private:
+        IntegralImage(int width, int height);
 
-int IntegralImage::getHeight() const
-{
-    return height;
-}
+    public:
+        ~IntegralImage();
 
-/**
- * @throw std::out_of_range
- */
-int IntegralImage::getIntegral(int x, int y) const
-{
-    if (x >= width
-            || y >= height
-            || x < 0
-            || y < 0) {
-        throw std::out_of_range(std::string("invalid coordinates"));
-    }
+    public:
+        static IntegralImage& fromImage(Image& image);
+};
 
-    return integrals[(y * width) + x];
-}
-
-IntegralImage& IntegralImage::fromImage(Image& image)
-{
-    IntegralImage *integral = new IntegralImage(image.getWidth(), image.getHeight());
-
-    return *integral;
-}
+#endif /* __INTEGRALIMAGE_H__ */
