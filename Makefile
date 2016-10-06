@@ -6,6 +6,7 @@ SOURCES=ColorGray.cpp \
 	ColorRgb.cpp \
 	File.cpp \
 	Image.cpp \
+	IntegralImage.cpp \
 	Main.cpp \
 	Tga.cpp
 OBJECTS=$(SOURCES:.cpp=.o)

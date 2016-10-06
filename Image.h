@@ -22,6 +22,7 @@ class Image
         int getBpp() const;
         int getSize() const;
         Color& getColor(int x, int y) const;
+        void scale(int width, int height);
 
     private:
         Image(int width, int height, int bpp);

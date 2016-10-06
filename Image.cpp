@@ -64,6 +64,17 @@ Color& Image::getColor(int x, int y) const
 }
 
 /**
+ * @throw std::out_of_range
+ */
+void Image::scale(int width, int height)
+{
+    if (width < 1
+            || height < 1) {
+        throw std::out_of_range(std::string("invalid scale"));
+    }
+}
+
+/**
  * @throw std::runtime_error
  */
 Image& Image::loadFromFile(const std::string& filename)
