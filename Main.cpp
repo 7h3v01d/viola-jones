@@ -1,8 +1,7 @@
 #include <cstdlib>
 
+#include <string>
 #include <iostream>
-
-#include <unistd.h>
 
 #include "Image.h"
 
@@ -27,8 +26,6 @@ int main(int argc, char **argv)
             << lastColor.getB() << ","
             << lastColor.getA() << ","
             << lastColor.getGray() << std::endl;
-
-    //::sleep(30);
 
     return EXIT_SUCCESS;
 }

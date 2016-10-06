@@ -1,3 +1,6 @@
+#include <stdexcept>
+#include <string>
+
 #include "IntegralImage.h"
 
 IntegralImage::IntegralImage(int width, int height)

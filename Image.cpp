@@ -1,6 +1,5 @@
-#include <cstdlib>
-
 #include <stdexcept>
+#include <string>
 
 #include "Image.h"
 #include "ColorRgb.h"
