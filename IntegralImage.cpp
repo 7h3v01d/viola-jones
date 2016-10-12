@@ -7,6 +7,7 @@ IntegralImage::IntegralImage(int width, int height)
 {
     this->width = width;
     this->height = height;
+    size = width * height * sizeof(int);
     integrals = new int[width * height];
 }
 
@@ -23,6 +24,21 @@ int IntegralImage::getWidth() const
 int IntegralImage::getHeight() const
 {
     return height;
+}
+
+int IntegralImage::getSize() const
+{
+    return size;
+}
+
+int IntegralImage::getInt(int x, int y) const
+{
+    try {
+        return getIntegral(x, y);
+    }
+    catch (std::out_of_range& e) {}
+
+    return 0;
 }
 
 /**
@@ -43,6 +59,14 @@ int IntegralImage::getIntegral(int x, int y) const
 IntegralImage& IntegralImage::fromImage(Image& image)
 {
     IntegralImage *integral = new IntegralImage(image.getWidth(), image.getHeight());
+    for (int y = 0; y < image.getHeight(); ++y) {
+        for (int x = 0; x < image.getWidth(); ++x) {
+            integral->integrals[(y * image.getWidth()) + x] = image.getColor(x, y).getGray()
+                    + integral->getInt(x - 1, y)
+                    + integral->getInt(x, y - 1)
+                    - integral->getInt(x - 1, y - 1);
+        }
+    }
 
     return *integral;
 }
