@@ -3,12 +3,18 @@
 
 #include "IntegralImage.h"
 
+/**
+ * @throw std::bad_alloc
+ */
 IntegralImage::IntegralImage(int width, int height)
 {
     this->width = width;
     this->height = height;
     size = width * height * sizeof(int);
     integrals = new int[width * height];
+    if (!integrals) {
+        throw std::bad_alloc();
+    }
 }
 
 IntegralImage::~IntegralImage()

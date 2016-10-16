@@ -7,6 +7,9 @@
 #include "Tga.h"
 
 
+/**
+ * @throw std::bad_alloc
+ */
 Image::Image(int width, int height, int bpp)
 {
     this->width = width;
@@ -14,8 +17,14 @@ Image::Image(int width, int height, int bpp)
     this->bpp = bpp;
     size = width * height * (bpp / 8);
     colors = new Color*[width * height];
+    if (!colors) {
+        throw std::bad_alloc();
+    }
     for (int i = 0; i < width * height; ++i) {
         colors[i] = new ColorRgb();
+        if (!colors[i]) {
+            throw std::bad_alloc();
+        }
     }
 }
 
