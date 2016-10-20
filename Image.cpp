@@ -80,6 +80,39 @@ void Image::scale(int width, int height)
             || height < 1) {
         throw std::out_of_range(std::string("invalid scale"));
     }
+    int newSize = width * height * (bpp / 8);
+    Color **newColors = new Color*[width * height];
+    if (!newColors) {
+        throw std::bad_alloc();
+    }
+    for (int i = 0; i < width * height; ++i) {
+        newColors[i] = new ColorRgb();
+        if (!newColors[i]) {
+            for (int j = 0; j < i; ++j) {
+                delete newColors[j];
+            }
+            delete[] newColors;
+            throw std::bad_alloc();
+        }
+    }
+    float scaleX = static_cast<float>(this->width - 1) / static_cast<float>(width -1);
+    float scaleY = static_cast<float>(this->height - 1) / static_cast<float>(height -1);
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            int oldX = static_cast<int>(static_cast<float>(x) * scaleX);
+            int oldY = static_cast<int>(static_cast<float>(y) * scaleY);
+            Color &c = *colors[(oldY * this->width) + oldX];
+            newColors[(y * width) + x]->setRgba(c.getR(), c.getG(), c.getB(), c.getA());
+        }
+    }
+    for (int i = 0; i < width * height; ++i) {
+        delete colors[i];
+    }
+    delete[] colors;
+    this->width = width;
+    this->height = height;
+    size = newSize;
+    colors = newColors;
 }
 
 /**
