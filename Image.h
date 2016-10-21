@@ -23,6 +23,7 @@ class Image
         int getSize() const;
         Color& getColor(int x, int y) const;
         void scale(int width, int height);
+        std::string toString() const;
 
     private:
         Image(int width, int height, int bpp);

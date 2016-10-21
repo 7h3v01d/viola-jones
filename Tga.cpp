@@ -30,7 +30,7 @@ Tga::Tga(File& file):
     if (0 == imageSpecification.imageWidth
             || 0 == imageSpecification.imageHeight
             || 24 != imageSpecification.pixelDepth
-            || BOTTOM_RIGHT != imageSpecification.imageDescriptor.imageOrigin
+            || TOP_LEFT != imageSpecification.imageDescriptor.imageOrigin
            // || 0 != imageSpecification.imageDescriptor.unused
             ) {
         throw std::runtime_error(std::string("unsupported tga"));

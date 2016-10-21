@@ -1,5 +1,8 @@
 #include <stdexcept>
 #include <string>
+#include <sstream>
+#include <iomanip>
+#include <cmath>
 
 #include "IntegralImage.h"
 
@@ -60,6 +63,25 @@ int IntegralImage::getIntegral(int x, int y) const
     }
 
     return integrals[(y * width) + x];
+}
+
+std::string IntegralImage::toString() const
+{
+    std::ostringstream s;
+    int w = static_cast<int>(::floor(::log10(static_cast<double>(integrals[(width * height) - 1])))) + 1;
+    for (int y = 0, i = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            s << std::setfill(' ') << std::setw(w) << integrals[i++];
+            if (x < width - 1) {
+                s << " ";
+            }
+        }
+        if (y < height - 1) {
+            s << "\n";
+        }
+    }
+
+    return s.str();
 }
 
 IntegralImage& IntegralImage::fromImage(Image& image)

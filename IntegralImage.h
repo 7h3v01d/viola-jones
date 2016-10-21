@@ -1,6 +1,8 @@
 #ifndef __INTEGRALIMAGE_H__
 #define __INTEGRALIMAGE_H__
 
+#include <string>
+
 #include "Image.h"
 
 
@@ -17,6 +19,7 @@ class IntegralImage
         int getHeight() const;
         int getSize() const;
         int getIntegral(int x, int y) const;
+        std::string toString() const;
 
     private:
         int getInt(int x, int y) const;

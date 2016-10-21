@@ -12,7 +12,9 @@ int main(int argc, char **argv)
     (void)argc;
     (void)argv;
 
-    Image face = Image::loadFromFile(std::string("face.tga"));
+    Image& face = Image::loadFromFile(std::string("face.tga"));
+    //face.scale(face.getWidth() / 2, face.getHeight() / 2);
+    face.scale(5, 5);
 
     // <test>
     Color& firstColor = face.getColor(0, 0);
@@ -48,6 +50,15 @@ int main(int argc, char **argv)
             << integral.getSize() << std::endl;
     std::cout << firstInt << std::endl;
     std::cout << lastInt << std::endl;
+    // </test>
+
+    // <test>
+    std::cout << std::endl
+            << face.toString()
+            << std::endl;
+    std::cout << std::endl
+            << integral.toString()
+            << std::endl;
     // </test>
 
     return EXIT_SUCCESS;

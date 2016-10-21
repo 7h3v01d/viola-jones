@@ -1,5 +1,7 @@
 #include <stdexcept>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 #include "Image.h"
 #include "ColorRgb.h"
@@ -113,6 +115,24 @@ void Image::scale(int width, int height)
     this->height = height;
     size = newSize;
     colors = newColors;
+}
+
+std::string Image::toString() const
+{
+    std::ostringstream s;
+    for (int y = 0, i = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            s << std::setfill(' ') << std::setw(3) << colors[i++]->getGray();
+            if (x < width - 1) {
+                s << " ";
+            }
+        }
+        if (y < height - 1) {
+            s << "\n";
+        }
+    }
+
+    return s.str();
 }
 
 /**
