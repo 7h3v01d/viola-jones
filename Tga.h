@@ -32,12 +32,12 @@ class Tga
             int firstEntryIndex:16;
             int colorMapLength:16;
             int colorMapEntrySize:8;
-        };
+        } __attribute__((packed));
         struct ImageDescriptor {
             int alphaChannelBits:4;
             ImageOrigin imageOrigin:2;
             int unused:2;
-        };
+        } __attribute__((packed));
         struct ImageSpecification {
             int xOriginOfImage:16;
             int yOriginOfImage:16;
@@ -45,7 +45,7 @@ class Tga
             int imageHeight:16;
             int pixelDepth:8;
             ImageDescriptor imageDescriptor;
-        };
+        } __attribute__((packed));
 
     private:
         File& file;
