@@ -6,11 +6,15 @@
 class TwoRectangleFeature:
         public IFeature
 {
+    private:
+        Rectangle first;
+        Rectangle second;
+
     public:
         int getRectangleCount() const;
-        Rectangle& getRectanlge(int number);
-        Rectangle& getFirstRectangle();
-        Rectangle& getSecondRectangle();
+        Rectangle& getRectanlge(int number) const;
+        Rectangle& getFirstRectangle() const;
+        Rectangle& getSecondRectangle() const;
 
     private:
         TwoRectangleFeature();
@@ -19,6 +23,7 @@ class TwoRectangleFeature:
 
     public:
         TwoRectangleFeature(Rectangle& first, Rectangle& second);
+        ~TwoRectangleFeature();
 };
 
 #endif /* __TWORECTANGLEFEATURE_H__ */

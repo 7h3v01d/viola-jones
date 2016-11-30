@@ -8,10 +8,10 @@ class ThreeRectangleFeature:
 {
     public:
         int getRectangleCount() const;
-        Rectangle& getRectanlge(int number);
-        Rectangle& getFirstRectangle();
-        Rectangle& getSecondRectangle();
-        Rectangle& getThirdRectangle();
+        Rectangle& getRectanlge(int number) const;
+        Rectangle& getFirstRectangle() const;
+        Rectangle& getSecondRectangle() const;
+        Rectangle& getThirdRectangle() const;
 
     private:
         ThreeRectangleFeature();
@@ -19,7 +19,8 @@ class ThreeRectangleFeature:
         ThreeRectangleFeature& operator=(const ThreeRectangleFeature&);
 
     public:
-        ThreeRectangleFeature(Rectangle& first, Rectangle& second);
+        ThreeRectangleFeature(Rectangle& first, Rectangle& second, Rectangle& third);
+        ~ThreeRectangleFeature();
 };
 
 #endif /* __THREERECTANGLEFEATURE_H__ */
