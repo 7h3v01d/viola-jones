@@ -17,8 +17,8 @@ int main(int argc, char **argv)
     //face.scale(5, 5);
 
     // <test>
-    Color& firstColor = face.getColor(0, 0);
-    Color& lastColor = face.getColor(face.getWidth() - 1, face.getHeight() - 1);
+    IColor& firstColor = face.getColor(0, 0);
+    IColor& lastColor = face.getColor(face.getWidth() - 1, face.getHeight() - 1);
     std::cout << face.getWidth()
             << "x"
             << face.getHeight()

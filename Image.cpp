@@ -18,7 +18,7 @@ Image::Image(int width, int height, int bpp)
     this->height = height;
     this->bpp = bpp;
     size = width * height * (bpp / 8);
-    colors = new Color*[width * height];
+    colors = new IColor*[width * height];
     if (!colors) {
         throw std::bad_alloc();
     }
@@ -61,7 +61,7 @@ int Image::getSize() const
 /**
  * @throw std::out_of_range
  */
-Color& Image::getColor(int x, int y) const
+IColor& Image::getColor(int x, int y) const
 {
     if (x >= width
             || y >= height
@@ -83,7 +83,7 @@ void Image::scale(int width, int height)
         throw std::out_of_range(std::string("invalid scale"));
     }
     int newSize = width * height * (bpp / 8);
-    Color **newColors = new Color*[width * height];
+    IColor **newColors = new IColor*[width * height];
     if (!newColors) {
         throw std::bad_alloc();
     }
@@ -103,7 +103,7 @@ void Image::scale(int width, int height)
         for (int x = 0; x < width; ++x) {
             int oldX = static_cast<int>(static_cast<float>(x) * scaleX);
             int oldY = static_cast<int>(static_cast<float>(y) * scaleY);
-            Color &c = *colors[(oldY * this->width) + oldX];
+            IColor &c = *colors[(oldY * this->width) + oldX];
             newColors[(y * width) + x]->setRgba(c.getR(), c.getG(), c.getB(), c.getA());
         }
     }

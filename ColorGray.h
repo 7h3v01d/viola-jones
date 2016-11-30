@@ -1,11 +1,11 @@
 #ifndef __COLORGRAY_H__
 #define __COLORGRAY_H__
 
-#include "Color.h"
+#include "IColor.h"
 
 
 class ColorGray:
-        public Color
+        public IColor
 {
     private:
         int gray;

@@ -1,11 +1,11 @@
 #ifndef __COLORRGB_H__
 #define __COLORRGB_H__
 
-#include "Color.h"
+#include "IColor.h"
 
 
 class ColorRgb:
-        public Color
+        public IColor
 {
     private:
         int r;

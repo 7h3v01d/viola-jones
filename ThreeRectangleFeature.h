@@ -4,7 +4,7 @@
 #include "Rectangle.h"
 
 class ThreeRectangleFeature:
-        public Feature
+        public IFeature
 {
     public:
         int getRectangleCount() const;

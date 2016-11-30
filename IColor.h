@@ -1,7 +1,7 @@
-#ifndef __COLOR_H__
-#define __COLOR_H__
+#ifndef __ICOLOR_H__
+#define __ICOLOR_H__
 
-class Color
+class IColor
 {
     public:
         virtual int getBpp() const = 0;
@@ -14,7 +14,7 @@ class Color
         virtual void setGray(int gray) = 0;
 
     public:
-        virtual ~Color() {}
+        virtual ~IColor() {}
 };
 
-#endif /* __COLOR_H__ */
+#endif /* __ICOLOR_H__ */

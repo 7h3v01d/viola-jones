@@ -14,14 +14,14 @@ class Image
         int height;
         int bpp;
         int size;
-        Color **colors;
+        IColor **colors;
 
     public:
         int getWidth() const;
         int getHeight() const;
         int getBpp() const;
         int getSize() const;
-        Color& getColor(int x, int y) const;
+        IColor& getColor(int x, int y) const;
         void scale(int width, int height);
         std::string toString() const;
 
