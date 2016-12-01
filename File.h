@@ -24,7 +24,10 @@ class File
         void checkErrors(bool read = true) const;
 
     private:
+        File();
+        File(const File&);
         File(const std::string& filename, std::ios_base::openmode mode);
+        File& operator=(const File&);
 
     public:
         ~File();

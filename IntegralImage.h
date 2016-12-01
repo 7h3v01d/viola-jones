@@ -25,7 +25,10 @@ class IntegralImage
         int getInt(int x, int y) const;
 
     private:
+        IntegralImage();
+        IntegralImage(const IntegralImage&);
         IntegralImage(int width, int height);
+        IntegralImage& operator=(IntegralImage&);
 
     public:
         ~IntegralImage();

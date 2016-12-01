@@ -1,9 +1,9 @@
 #include "ColorGray.h"
 
 
-ColorGray::ColorGray()
+ColorGray::ColorGray():
+    gray(0)
 {
-    gray = 0;
 }
 
 ColorGray::ColorGray(int gray)

@@ -1,7 +1,7 @@
 #ifndef __TGA_H__
 #define __TGA_H__
 
-#include "Color.h"
+#include "IColor.h"
 #include "File.h"
 #include "Image.h"
 
@@ -64,7 +64,10 @@ class Tga
         void getColors(IColor *colors[]) const;
 
     private:
+        Tga();
+        Tga(const Tga&);
         Tga(File& file);
+        Tga& operator=(const Tga&);
 
     public:
         ~Tga();

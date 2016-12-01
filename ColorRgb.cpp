@@ -1,11 +1,11 @@
 #include "ColorRgb.h"
 
 
-ColorRgb::ColorRgb()
+ColorRgb::ColorRgb():
+    r(0),
+    g(0),
+    b(0)
 {
-    r = 0;
-    g = 0;
-    b = 0;
 }
 
 ColorRgb::ColorRgb(int r, int g, int b)

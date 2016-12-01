@@ -26,7 +26,10 @@ class Image
         std::string toString() const;
 
     private:
+        Image();
+        Image(const Image&);
         Image(int width, int height, int bpp);
+        Image& operator=(const Image&);
 
     public:
         ~Image();
