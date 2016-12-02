@@ -28,8 +28,8 @@ class Image
     private:
         Image();
         Image(const Image&);
-        Image(int width, int height, int bpp);
         Image& operator=(const Image&);
+        Image(int width, int height, int bpp);
 
     public:
         ~Image();

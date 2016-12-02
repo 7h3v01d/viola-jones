@@ -1,9 +1,8 @@
 #include "TwoRectangleFeature.h"
 
-TwoRectangleFeature::TwoRectangleFeature(Rectangle& first, Rectangle& second, double threshold):
+TwoRectangleFeature::TwoRectangleFeature(Rectangle& first, Rectangle& second):
     first(first),
-    second(second),
-    threshold(threshold)
+    second(second)
 {
 }
 
@@ -39,9 +38,4 @@ Rectangle& TwoRectangleFeature::getFirstRectangle() const
 Rectangle& TwoRectangleFeature::getSecondRectangle() const
 {
     return second;
-}
-
-double TwoRectangleFeature::getThreshold() const
-{
-    return threshold;
 }

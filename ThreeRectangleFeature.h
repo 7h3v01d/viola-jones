@@ -10,7 +10,6 @@ class ThreeRectangleFeature:
         Rectangle& first;
         Rectangle& second;
         Rectangle& third;
-        double threshold;
 
     public:
         int getRectangleCount() const;
@@ -18,7 +17,6 @@ class ThreeRectangleFeature:
         Rectangle& getFirstRectangle() const;
         Rectangle& getSecondRectangle() const;
         Rectangle& getThirdRectangle() const;
-        double getThreshold() const;
 
     private:
         ThreeRectangleFeature();
@@ -26,7 +24,7 @@ class ThreeRectangleFeature:
         ThreeRectangleFeature& operator=(const ThreeRectangleFeature&);
 
     public:
-        ThreeRectangleFeature(Rectangle& first, Rectangle& second, Rectangle& third, double threshold);
+        ThreeRectangleFeature(Rectangle& first, Rectangle& second, Rectangle& third);
         ~ThreeRectangleFeature();
 };
 

@@ -66,8 +66,8 @@ class Tga
     private:
         Tga();
         Tga(const Tga&);
-        Tga(File& file);
         Tga& operator=(const Tga&);
+        Tga(File& file);
 
     public:
         ~Tga();

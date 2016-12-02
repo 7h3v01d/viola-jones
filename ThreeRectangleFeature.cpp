@@ -1,10 +1,9 @@
 #include "ThreeRectangleFeature.h"
 
-ThreeRectangleFeature::ThreeRectangleFeature(Rectangle& first, Rectangle& second, Rectangle& third, double threshold):
+ThreeRectangleFeature::ThreeRectangleFeature(Rectangle& first, Rectangle& second, Rectangle& third):
     first(first),
     second(second),
-    third(third),
-    threshold(threshold)
+    third(third)
 {
 }
 
@@ -48,9 +47,4 @@ Rectangle& ThreeRectangleFeature::getSecondRectangle() const
 Rectangle& ThreeRectangleFeature::getThirdRectangle() const
 {
     return third;
-}
-
-double ThreeRectangleFeature::getThreshold() const
-{
-    return threshold;
 }

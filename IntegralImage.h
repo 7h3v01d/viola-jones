@@ -27,8 +27,8 @@ class IntegralImage
     private:
         IntegralImage();
         IntegralImage(const IntegralImage&);
-        IntegralImage(int width, int height);
         IntegralImage& operator=(IntegralImage&);
+        IntegralImage(int width, int height);
 
     public:
         ~IntegralImage();
