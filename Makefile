@@ -29,4 +29,11 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CPPFLAGS) -c $< -o$@
 
 clean:
-	$(RM) *.o $(EXECUTABLE)
+	$(RM) *.o $(EXECUTABLE) $(EXECUTABLE).valgrind
+
+valgrind:
+	cat /dev/null > $(EXECUTABLE).valgrind
+	valgrind --trace-children=yes \
+		 --log-file=$(EXECUTABLE).valgrind \
+		 --leak-check=full \
+		 --show-reachable=yes -v ./$(EXECUTABLE)
