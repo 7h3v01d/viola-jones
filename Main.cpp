@@ -37,7 +37,7 @@ int main(int argc, char **argv)
             << lastColor.getGray() << std::endl;
     // </test>
 
-    IntegralImage integral = IntegralImage::fromImage(face);
+    IntegralImage& integral = IntegralImage::fromImage(face);
 
     // <test>
     int firstInt = integral.getIntegral(0, 0);
