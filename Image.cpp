@@ -141,7 +141,8 @@ Image Image::loadFromFile(const std::string& filename)
 {
     std::string ext = filename.substr(filename.rfind('.'));
     if (std::string(".tga") == ext) {
-        return loadTga(File::openExisting(filename));
+        File file = File::openExisting(filename);
+        return loadTga(file);
     }
 
     throw std::runtime_error(std::string("unsupported file"));

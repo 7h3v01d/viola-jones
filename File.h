@@ -7,7 +7,7 @@
 class File
 {
     private:
-        std::fstream file;
+        std::fstream* stream;
 
     public:
         int getPosition();
@@ -24,7 +24,6 @@ class File
 
     private:
         File();
-        File(const File&);
         File& operator=(const File&);
         File(const std::string& filename, std::ios_base::openmode mode);
 
@@ -32,7 +31,7 @@ class File
         ~File();
 
     public:
-        static File& openExisting(const std::string& filename);
+        static File openExisting(const std::string& filename);
 };
 
 #endif /* __FILE_H__ */
