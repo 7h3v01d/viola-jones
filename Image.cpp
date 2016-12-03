@@ -137,7 +137,7 @@ std::string Image::toString() const
 /**
  * @throw std::runtime_error
  */
-Image& Image::loadFromFile(const std::string& filename)
+Image Image::loadFromFile(const std::string& filename)
 {
     std::string ext = filename.substr(filename.rfind('.'));
     if (std::string(".tga") == ext) {
@@ -147,12 +147,12 @@ Image& Image::loadFromFile(const std::string& filename)
     throw std::runtime_error(std::string("unsupported file"));
 }
 
-Image& Image::loadTga(File& file)
+Image Image::loadTga(File& file)
 {
     Tga tga(file);
 
-    Image *image = new Image(tga.getWidth(), tga.getHeight(), tga.getBpp());
-    tga.getColors(image->colors);
+    Image image(tga.getWidth(), tga.getHeight(), tga.getBpp());
+    tga.getColors(image.colors);
 
-    return *image;
+    return image;
 }

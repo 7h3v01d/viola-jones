@@ -11,7 +11,7 @@ int main(int argc, char **argv)
     (void)argc;
     (void)argv;
 
-    Image& face = Image::loadFromFile(std::string("face.tga"));
+    Image face = Image::loadFromFile(std::string("face.tga"));
     //face.scale(face.getWidth() / 2, face.getHeight() / 2);
     //face.scale(5, 5);
 

@@ -26,7 +26,6 @@ class Image
 
     private:
         Image();
-        Image(const Image&);
         Image& operator=(const Image&);
         Image(int width, int height, int bpp);
 
@@ -34,10 +33,10 @@ class Image
         ~Image();
 
     public:
-        static Image& loadFromFile(const std::string& filename);
+        static Image loadFromFile(const std::string& filename);
 
     private:
-        static Image& loadTga(File& file);
+        static Image loadTga(File& file);
 };
 
 #endif /* __IMAGE_H__ */
