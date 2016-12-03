@@ -8,7 +8,6 @@
 #include "ColorGray.h"
 #include "Tga.h"
 
-
 /**
  * @throw std::bad_alloc
  */

@@ -3,9 +3,8 @@
 
 #include "IColor.h"
 
-
 class ColorGray:
-        public IColor
+    public IColor
 {
     private:
         int gray;

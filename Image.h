@@ -3,9 +3,8 @@
 
 #include <string>
 
-#include "Color.h"
+#include "IColor.h"
 #include "File.h"
-
 
 class Image
 {

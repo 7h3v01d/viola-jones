@@ -1,6 +1,5 @@
 #include "ColorRgb.h"
 
-
 ColorRgb::ColorRgb():
     r(0),
     g(0),

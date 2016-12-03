@@ -5,7 +5,6 @@
 
 #include "Image.h"
 
-
 class IntegralImage
 {
     private:

@@ -22,13 +22,10 @@ class Cascade
         Cascade();
         Cascade(const Cascade&);
         Cascade& operator=(const Cascade&);
-        Cascade(int detectorWidth, int detectorHeight, std::list<Stage> stages);
 
     public:
+        Cascade(int detectorWidth, int detectorHeight, std::list<Stage>& stages);
         ~Cascade();
-
-    public:
-        static Cascade& getFrontalFaceDetector();
 };
 
 #endif /* __CASCADE_H__ */

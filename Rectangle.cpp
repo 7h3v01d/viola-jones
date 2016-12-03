@@ -4,11 +4,11 @@
  * @throw std::out_of_range
  */
 Rectangle::Rectangle(int x, int y, int width, int height, double weight):
-        x(x),
-        y(y),
-        width(width),
-        height(height),
-        weight(weight)
+    x(x),
+    y(y),
+    width(width),
+    height(height),
+    weight(weight)
 {
     if (width < 1
             || height < 1) {

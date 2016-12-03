@@ -23,7 +23,7 @@ class WeakClassifier
         WeakClassifier& operator=(const WeakClassifier&);
 
     public:
-        WeakClassifier(IFeature& feature, double threshold);
+        WeakClassifier(IFeature& feature, double threshold, double passWeight, double failWeight);
         ~WeakClassifier();
 };
 

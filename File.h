@@ -4,7 +4,6 @@
 #include <fstream>
 #include <string>
 
-
 class File
 {
     private:

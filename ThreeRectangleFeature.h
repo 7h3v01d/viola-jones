@@ -4,7 +4,7 @@
 #include "Rectangle.h"
 
 class ThreeRectangleFeature:
-        public IFeature
+    public IFeature
 {
     private:
         Rectangle& first;

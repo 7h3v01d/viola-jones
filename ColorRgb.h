@@ -3,9 +3,8 @@
 
 #include "IColor.h"
 
-
 class ColorRgb:
-        public IColor
+    public IColor
 {
     private:
         int r;

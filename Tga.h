@@ -5,7 +5,6 @@
 #include "File.h"
 #include "Image.h"
 
-
 class Tga
 {
     private:

@@ -3,7 +3,6 @@
 
 #include "Tga.h"
 
-
 Tga::Tga(File& file):
     file(file)
 {

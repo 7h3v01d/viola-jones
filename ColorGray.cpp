@@ -1,6 +1,5 @@
 #include "ColorGray.h"
 
-
 ColorGray::ColorGray():
     gray(0)
 {

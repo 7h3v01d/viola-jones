@@ -6,7 +6,6 @@
 #include "Image.h"
 #include "IntegralImage.h"
 
-
 int main(int argc, char **argv)
 {
     (void)argc;
