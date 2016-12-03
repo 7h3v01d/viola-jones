@@ -6,23 +6,15 @@
 
 #include "IntegralImage.h"
 
-/**
- * @throw std::bad_alloc
- */
-IntegralImage::IntegralImage(int width, int height)
+IntegralImage::IntegralImage(int width, int height):
+    width(width),
+    height(height),
+    integrals(width * height)
 {
-    this->width = width;
-    this->height = height;
-    size = width * height * sizeof(int);
-    integrals = new int[width * height];
-    if (!integrals) {
-        throw std::bad_alloc();
-    }
 }
 
 IntegralImage::~IntegralImage()
 {
-    delete[] integrals;
 }
 
 int IntegralImage::getWidth() const
@@ -33,11 +25,6 @@ int IntegralImage::getWidth() const
 int IntegralImage::getHeight() const
 {
     return height;
-}
-
-int IntegralImage::getSize() const
-{
-    return size;
 }
 
 int IntegralImage::getInt(int x, int y) const
@@ -84,17 +71,17 @@ std::string IntegralImage::toString() const
     return s.str();
 }
 
-IntegralImage& IntegralImage::fromImage(Image& image)
+IntegralImage IntegralImage::fromImage(const Image& image)
 {
-    IntegralImage *integral = new IntegralImage(image.getWidth(), image.getHeight());
+    IntegralImage integral(image.getWidth(), image.getHeight());
     for (int y = 0; y < image.getHeight(); ++y) {
         for (int x = 0; x < image.getWidth(); ++x) {
-            integral->integrals[(y * image.getWidth()) + x] = image.getColor(x, y).getGray()
-                    + integral->getInt(x - 1, y)
-                    + integral->getInt(x, y - 1)
-                    - integral->getInt(x - 1, y - 1);
+            integral.integrals[(y * image.getWidth()) + x] = image.getColor(x, y).getGray()
+                    + integral.getInt(x - 1, y)
+                    + integral.getInt(x, y - 1)
+                    - integral.getInt(x - 1, y - 1);
         }
     }
 
-    return *integral;
+    return integral;
 }

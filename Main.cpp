@@ -37,16 +37,14 @@ int main(int argc, char **argv)
             << lastColor.getGray() << std::endl;
     // </test>
 
-    IntegralImage& integral = IntegralImage::fromImage(face);
+    IntegralImage integral = IntegralImage::fromImage(face);
 
     // <test>
     int firstInt = integral.getIntegral(0, 0);
     int lastInt = integral.getIntegral(integral.getWidth() - 1, integral.getHeight() - 1);
     std::cout << integral.getWidth()
             << "x"
-            << integral.getHeight()
-            << "="
-            << integral.getSize() << std::endl;
+            << integral.getHeight() << std::endl;
     std::cout << firstInt << std::endl;
     std::cout << lastInt << std::endl;
     // </test>

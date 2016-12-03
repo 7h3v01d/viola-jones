@@ -5,13 +5,14 @@
 
 #include "Image.h"
 
+#include <vector>
+
 class IntegralImage
 {
     private:
         int width;
         int height;
-        int size;
-        int *integrals;
+        std::vector<int> integrals;
 
     public:
         int getWidth() const;
@@ -25,7 +26,6 @@ class IntegralImage
 
     private:
         IntegralImage();
-        IntegralImage(const IntegralImage&);
         IntegralImage& operator=(IntegralImage&);
         IntegralImage(int width, int height);
 
@@ -33,7 +33,7 @@ class IntegralImage
         ~IntegralImage();
 
     public:
-        static IntegralImage& fromImage(Image& image);
+        static IntegralImage fromImage(const Image& image);
 };
 
 #endif /* __INTEGRALIMAGE_H__ */
