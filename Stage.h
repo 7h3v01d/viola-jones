@@ -1,14 +1,14 @@
 #ifndef __STAGE_H__
 #define __STAGE_H__
 
-#include <list>
+#include <vector>
 
 #include "WeakClassifier.h"
 
 class Stage
 {
     private:
-        std::list<WeakClassifier>& weakClassifiers;
+        std::vector<WeakClassifier>& weakClassifiers;
         double threshold;
 
     public:
@@ -22,7 +22,7 @@ class Stage
         Stage& operator=(const Stage&);
 
     public:
-        Stage(std::list<WeakClassifier>& weakClassifiers, double threshold);
+        Stage(std::vector<WeakClassifier>& weakClassifiers, double threshold);
 };
 
 #endif /* __STAGE_H__ */

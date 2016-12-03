@@ -1,3 +1,6 @@
+#include <stdexcept>
+#include <string>
+
 #include "ThreeRectangleFeature.h"
 
 ThreeRectangleFeature::ThreeRectangleFeature(Rectangle& first, Rectangle& second, Rectangle& third):

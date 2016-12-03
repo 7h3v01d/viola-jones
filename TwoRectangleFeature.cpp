@@ -1,3 +1,6 @@
+#include <stdexcept>
+#include <string>
+
 #include "TwoRectangleFeature.h"
 
 TwoRectangleFeature::TwoRectangleFeature(Rectangle& first, Rectangle& second):

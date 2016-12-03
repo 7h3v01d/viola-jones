@@ -1,7 +1,7 @@
 #ifndef __CASCADE_H__
 #define __CASCADE_H__
 
-#include <list>
+#include <vector>
 
 #include "Stage.h"
 
@@ -10,7 +10,7 @@ class Cascade
     private:
         int detectorWidth;
         int detectorHeight;
-        std::list<Stage>& stages;
+        std::vector<Stage>& stages;
 
     public:
         int getDetectorWidth() const;
@@ -24,7 +24,7 @@ class Cascade
         Cascade& operator=(const Cascade&);
 
     public:
-        Cascade(int detectorWidth, int detectorHeight, std::list<Stage>& stages);
+        Cascade(int detectorWidth, int detectorHeight, std::vector<Stage>& stages);
         ~Cascade();
 };
 
