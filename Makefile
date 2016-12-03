@@ -2,13 +2,20 @@ CC=g++
 CPPFLAGS=-Wall -Wextra -Wpedantic -ggdb
 LIBS=
 LDFAGS=
-SOURCES=ColorGray.cpp \
+SOURCES=Cascade.cpp \
+	CascadeBuilder.cpp \
+	ColorGray.cpp \
 	ColorRgb.cpp \
 	File.cpp \
 	Image.cpp \
 	IntegralImage.cpp \
 	Main.cpp \
-	Tga.cpp
+	Rectangle.cpp \
+	Stage.cpp \
+	Tga.cpp \
+	ThreeRectangleFeature.cpp \
+	TwoRectangleFeature.cpp \
+	WeakClassifier.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=viola-jones
 

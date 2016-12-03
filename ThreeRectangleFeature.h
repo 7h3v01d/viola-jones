@@ -1,6 +1,7 @@
 #ifndef __THREERECTANGLEFEATURE_H__
 #define __THREERECTANGLEFEATURE_H__
 
+#include "IFeature.h"
 #include "Rectangle.h"
 
 class ThreeRectangleFeature:

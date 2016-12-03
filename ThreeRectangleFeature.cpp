@@ -14,7 +14,7 @@ ThreeRectangleFeature::~ThreeRectangleFeature()
 {
 }
 
-int ThreeRectangleFeature::ThreeRectangleFeature() const
+int ThreeRectangleFeature::getRectangleCount() const
 {
     return 3;
 }

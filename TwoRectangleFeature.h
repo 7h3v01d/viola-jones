@@ -1,6 +1,7 @@
 #ifndef __TWORECTANGLEFEATURE_H__
 #define __TWORECTANGLEFEATURE_H__
 
+#include "IFeature.h"
 #include "Rectangle.h"
 
 class TwoRectangleFeature:
