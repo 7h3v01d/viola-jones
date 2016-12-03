@@ -10,7 +10,7 @@ class File
         std::fstream* stream;
 
     public:
-        int getPosition();
+        int getPosition() const;
         void setPosition(int pos);
         void skip(int n);
         int readByte();

@@ -50,7 +50,7 @@ void File::checkErrors(bool read) const
     }
 }
 
-int File::getPosition()
+int File::getPosition() const
 {
     int pos = static_cast<int>(stream->tellg());
     checkErrors();
