@@ -62,7 +62,7 @@ int Tga::getBpp() const
     return imageSpecification.pixelDepth;
 }
 
-void Tga::getColors(IColor *colors[]) const
+void Tga::getColors(std::vector<IColor*> colors) const
 {
     file.setPosition(imageDataPos);
 

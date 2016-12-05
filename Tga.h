@@ -1,6 +1,8 @@
 #ifndef __TGA_H__
 #define __TGA_H__
 
+#include <vector>
+
 #include "IColor.h"
 #include "File.h"
 #include "Image.h"
@@ -60,7 +62,7 @@ class Tga
         int getWidth() const;
         int getHeight() const;
         int getBpp() const;
-        void getColors(IColor *colors[]) const;
+        void getColors(std::vector<IColor*> colors) const;
 
     private:
         Tga();

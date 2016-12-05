@@ -8,24 +8,15 @@
 #include "ColorGray.h"
 #include "Tga.h"
 
-/**
- * @throw std::bad_alloc
- */
-Image::Image(int width, int height, int bpp)
+Image::Image(int width, int height, int bpp):
+    width(width),
+    height(height),
+    bpp(bpp),
+    size(width * height * (bpp / 8)),
+    colors(width * height)
 {
-    this->width = width;
-    this->height = height;
-    this->bpp = bpp;
-    size = width * height * (bpp / 8);
-    colors = new IColor*[width * height];
-    if (!colors) {
-        throw std::bad_alloc();
-    }
     for (int i = 0; i < width * height; ++i) {
         colors[i] = new ColorRgb();
-        if (!colors[i]) {
-            throw std::bad_alloc();
-        }
     }
 }
 
@@ -34,7 +25,6 @@ Image::~Image()
     for (int i = 0; i < width * height; ++i) {
         delete colors[i];
     }
-    delete[] colors;
 }
 
 int Image::getWidth() const
@@ -74,6 +64,7 @@ IColor& Image::getColor(int x, int y) const
 
 /**
  * @throw std::out_of_range
+ * @throw std::bad_alloc
  */
 void Image::scale(int width, int height)
 {
@@ -81,19 +72,16 @@ void Image::scale(int width, int height)
             || height < 1) {
         throw std::out_of_range(std::string("invalid scale"));
     }
-    int newSize = width * height * (bpp / 8);
-    IColor **newColors = new IColor*[width * height];
-    if (!newColors) {
-        throw std::bad_alloc();
-    }
+    std::vector<IColor*> newColors(width * height);
     for (int i = 0; i < width * height; ++i) {
-        newColors[i] = new ColorRgb();
-        if (!newColors[i]) {
+        try {
+            newColors[i] = new ColorRgb();
+        }
+        catch (std::bad_alloc&) {
             for (int j = 0; j < i; ++j) {
                 delete newColors[j];
             }
-            delete[] newColors;
-            throw std::bad_alloc();
+            throw;
         }
     }
     float scaleX = static_cast<float>(this->width - 1) / static_cast<float>(width -1);
@@ -102,17 +90,16 @@ void Image::scale(int width, int height)
         for (int x = 0; x < width; ++x) {
             int oldX = static_cast<int>(static_cast<float>(x) * scaleX);
             int oldY = static_cast<int>(static_cast<float>(y) * scaleY);
-            IColor &c = *colors[(oldY * this->width) + oldX];
+            IColor& c = *colors[(oldY * this->width) + oldX];
             newColors[(y * width) + x]->setRgba(c.getR(), c.getG(), c.getB(), c.getA());
         }
     }
-    for (int i = 0; i < width * height; ++i) {
+    for (int i = 0; i < this->width * this->height; ++i) {
         delete colors[i];
     }
-    delete[] colors;
     this->width = width;
     this->height = height;
-    size = newSize;
+    size = width * height * (bpp / 8);
     colors = newColors;
 }
 

@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 
     Image face = Image::loadFromFile(std::string("face.tga"));
     //face.scale(face.getWidth() / 2, face.getHeight() / 2);
-    //face.scale(5, 5);
+    face.scale(5, 5);
 
     // <test>
     IColor& firstColor = face.getColor(0, 0);
@@ -50,14 +50,14 @@ int main(int argc, char **argv)
     // </test>
 
     // <test>
-    /*
+    // /*
     std::cout << std::endl
             << face.toString()
             << std::endl;
     std::cout << std::endl
             << integral.toString()
             << std::endl;
-    */
+    // */
     // </test>
 
     return EXIT_SUCCESS;

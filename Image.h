@@ -1,6 +1,7 @@
 #ifndef __IMAGE_H__
 #define __IMAGE_H__
 
+#include <vector>
 #include <string>
 
 #include "IColor.h"
@@ -13,7 +14,7 @@ class Image
         int height;
         int bpp;
         int size;
-        IColor **colors;
+        std::vector<IColor*> colors;
 
     public:
         int getWidth() const;
