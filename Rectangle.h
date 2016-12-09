@@ -1,6 +1,8 @@
 #ifndef __RECTANGLE_H__
 #define __RECTANGLE_H__
 
+#include <string>
+
 class Rectangle
 {
     private:
@@ -16,6 +18,7 @@ class Rectangle
         int getWidth() const;
         int getHeight() const;
         double getWeight() const;
+        std::string toString() const;
 
     private:
         Rectangle();

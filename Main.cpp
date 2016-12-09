@@ -19,22 +19,22 @@ int main(int argc, char **argv)
     IColor& firstColor = face.getColor(0, 0);
     IColor& lastColor = face.getColor(face.getWidth() - 1, face.getHeight() - 1);
     std::cout << face.getWidth()
-            << "x"
-            << face.getHeight()
-            << "@"
-            << face.getBpp()
-            << "="
-            << face.getSize() << std::endl;
+              << "x"
+              << face.getHeight()
+              << "@"
+              << face.getBpp()
+              << "="
+              << face.getSize() << std::endl;
     std::cout << firstColor.getR() << ","
-            << firstColor.getG() << ","
-            << firstColor.getB() << ","
-            << firstColor.getA() << ","
-            << firstColor.getGray() << std::endl;
+              << firstColor.getG() << ","
+              << firstColor.getB() << ","
+              << firstColor.getA() << ","
+              << firstColor.getGray() << std::endl;
     std::cout << lastColor.getR() << ","
-            << lastColor.getG() << ","
-            << lastColor.getB() << ","
-            << lastColor.getA() << ","
-            << lastColor.getGray() << std::endl;
+              << lastColor.getG() << ","
+              << lastColor.getB() << ","
+              << lastColor.getA() << ","
+              << lastColor.getGray() << std::endl;
     // </test>
 
     IntegralImage integral = IntegralImage::fromImage(face);
@@ -43,8 +43,8 @@ int main(int argc, char **argv)
     int firstInt = integral.getIntegral(0, 0);
     int lastInt = integral.getIntegral(integral.getWidth() - 1, integral.getHeight() - 1);
     std::cout << integral.getWidth()
-            << "x"
-            << integral.getHeight() << std::endl;
+              << "x"
+              << integral.getHeight() << std::endl;
     std::cout << firstInt << std::endl;
     std::cout << lastInt << std::endl;
     // </test>
@@ -52,11 +52,11 @@ int main(int argc, char **argv)
     // <test>
     /*
     std::cout << std::endl
-            << face.toString()
-            << std::endl;
+              << face.toString()
+              << std::endl;
     std::cout << std::endl
-            << integral.toString()
-            << std::endl;
+              << integral.toString()
+              << std::endl;
     */
     // </test>
 

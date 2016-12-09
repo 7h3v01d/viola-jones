@@ -20,18 +20,17 @@ Tga::Tga(File& file):
 
     file.read(static_cast<void *>(&colorMapSpecification), 5);
     if (0 != colorMapSpecification.firstEntryIndex
-            || 0 != colorMapSpecification.colorMapLength
-            || 0 != colorMapSpecification.colorMapEntrySize) {
+        || 0 != colorMapSpecification.colorMapLength
+        || 0 != colorMapSpecification.colorMapEntrySize) {
         throw std::runtime_error(std::string("unsupported tga"));
     }
 
     file.read(static_cast<void *>(&imageSpecification), 10);
     if (0 == imageSpecification.imageWidth
-            || 0 == imageSpecification.imageHeight
-            || 24 != imageSpecification.pixelDepth
-            || BOTTOM_LEFT != imageSpecification.imageDescriptor.imageOrigin
-            || 0 != imageSpecification.imageDescriptor.unused
-            ) {
+        || 0 == imageSpecification.imageHeight
+        || 24 != imageSpecification.pixelDepth
+        || BOTTOM_LEFT != imageSpecification.imageDescriptor.imageOrigin
+        || 0 != imageSpecification.imageDescriptor.unused) {
         throw std::runtime_error(std::string("unsupported tga"));
     }
 
@@ -39,8 +38,8 @@ Tga::Tga(File& file):
 
     imageDataPos = file.getPosition();
     file.skip(imageSpecification.imageWidth
-            * imageSpecification.imageHeight
-            * (imageSpecification.pixelDepth / 8));
+        * imageSpecification.imageHeight
+        * (imageSpecification.pixelDepth / 8));
 }
 
 Tga::~Tga()

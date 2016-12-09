@@ -1,6 +1,8 @@
 #ifndef __THREERECTANGLEFEATURE_H__
 #define __THREERECTANGLEFEATURE_H__
 
+#include <string>
+
 #include "IFeature.h"
 #include "Rectangle.h"
 
@@ -18,6 +20,7 @@ class ThreeRectangleFeature:
         Rectangle& getFirstRectangle() const;
         Rectangle& getSecondRectangle() const;
         Rectangle& getThirdRectangle() const;
+        std::string toString() const;
 
     private:
         ThreeRectangleFeature();

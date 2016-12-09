@@ -1,6 +1,8 @@
 #ifndef __WEAKCLASSIFIER_H__
 #define __WEAKCLASSIFIER_H__
 
+#include <string>
+
 #include "IFeature.h"
 
 class WeakClassifier
@@ -16,6 +18,7 @@ class WeakClassifier
         double getThreshold() const;
         double getPassWeight() const;
         double getFailWeight() const;
+        std::string toString() const;
 
     private:
         WeakClassifier();

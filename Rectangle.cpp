@@ -1,5 +1,5 @@
 #include <stdexcept>
-#include <string>
+#include <sstream>
 
 #include "Rectangle.h"
 
@@ -14,7 +14,7 @@ Rectangle::Rectangle(int x, int y, int width, int height, double weight):
     weight(weight)
 {
     if (width < 1
-            || height < 1) {
+        || height < 1) {
         throw std::out_of_range(std::string("invalid dimensions"));
     }
 }
@@ -46,4 +46,12 @@ int Rectangle::getHeight() const
 double Rectangle::getWeight() const
 {
     return weight;
+}
+
+std::string Rectangle::toString() const
+{
+    std::ostringstream s;
+    s << x << "," << y << " " << width << "x" << height << " " << weight;
+
+    return s.str();
 }

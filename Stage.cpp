@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <sstream>
 #include <string>
 
 #include "Stage.h"
@@ -29,4 +30,15 @@ WeakClassifier& Stage::getWeakClassifier(int number) const
 double Stage::getThreshold() const
 {
     return threshold;
+}
+
+std::string Stage::toString() const
+{
+    std::ostringstream s;
+    for (int i = 0; i < static_cast<int>(weakClassifiers.size()); ++i) {
+        s << weakClassifiers[i].toString() << s << "\n";
+    }
+    s << threshold;
+
+    return s.str();
 }

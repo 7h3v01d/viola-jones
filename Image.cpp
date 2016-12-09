@@ -1,5 +1,4 @@
 #include <stdexcept>
-#include <string>
 #include <sstream>
 #include <iomanip>
 
@@ -53,9 +52,9 @@ int Image::getSize() const
 IColor& Image::getColor(int x, int y) const
 {
     if (x >= width
-            || y >= height
-            || x < 0
-            || y < 0) {
+        || y >= height
+        || x < 0
+        || y < 0) {
         throw std::out_of_range(std::string("invalid coordinates"));
     }
 
@@ -69,7 +68,7 @@ IColor& Image::getColor(int x, int y) const
 void Image::scale(int width, int height)
 {
     if (width < 1
-            || height < 1) {
+        || height < 1) {
         throw std::out_of_range(std::string("invalid scale"));
     }
     std::vector<IColor*> newColors(width * height);

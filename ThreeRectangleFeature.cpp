@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <sstream>
 #include <string>
 
 #include "ThreeRectangleFeature.h"
@@ -31,7 +32,7 @@ Rectangle& ThreeRectangleFeature::getRectanlge(int number) const
         return second;
     }
     if (2 == number) {
-        return second;
+        return third;
     }
 
     throw std::out_of_range(std::string("invalid number"));
@@ -50,4 +51,14 @@ Rectangle& ThreeRectangleFeature::getSecondRectangle() const
 Rectangle& ThreeRectangleFeature::getThirdRectangle() const
 {
     return third;
+}
+
+std::string ThreeRectangleFeature::toString() const
+{
+    std::ostringstream s;
+    s << first.toString() << "\n";
+    s << second.toString() << "\n";
+    s << third.toString();
+
+    return s.str();
 }

@@ -1,6 +1,8 @@
 #ifndef __TWORECTANGLEFEATURE_H__
 #define __TWORECTANGLEFEATURE_H__
 
+#include <string>
+
 #include "IFeature.h"
 #include "Rectangle.h"
 
@@ -16,6 +18,7 @@ class TwoRectangleFeature:
         Rectangle& getRectanlge(int number) const;
         Rectangle& getFirstRectangle() const;
         Rectangle& getSecondRectangle() const;
+        std::string toString() const;
 
     private:
         TwoRectangleFeature();

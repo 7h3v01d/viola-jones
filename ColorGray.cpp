@@ -1,3 +1,6 @@
+#include <sstream>
+#include <string>
+
 #include "ColorGray.h"
 
 ColorGray::ColorGray():
@@ -52,11 +55,19 @@ void ColorGray::setRgba(int r, int g, int b, int a)
     g = g < 0 ? 0 : g > 255 ? 255 : g;
     b = b < 0 ? 0 : b > 255 ? 255 : b;
     this->gray = static_cast<int>(((0.21f * static_cast<float>(r))
-            + (0.72f * static_cast<float>(g))
-            + (0.07f * static_cast<float>(b))));
+        + (0.72f * static_cast<float>(g))
+        + (0.07f * static_cast<float>(b))));
 }
 
 void ColorGray::setGray(int gray)
 {
     this->gray = gray < 0 ? 0 : gray > 255 ? 255 : gray;
+}
+
+std::string ColorGray::toString()
+{
+    std::ostringstream s;
+    s << gray;
+
+    return s.str();
 }

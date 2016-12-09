@@ -1,3 +1,6 @@
+#include <sstream>
+#include <string>
+
 #include "ColorRgb.h"
 
 ColorRgb::ColorRgb():
@@ -46,8 +49,8 @@ int ColorRgb::getA() const
 int ColorRgb::getGray() const
 {
     return static_cast<int>((0.21f * static_cast<float>(r))
-            + (0.72f * static_cast<float>(g))
-            + (0.07f * static_cast<float>(b)));
+        + (0.72f * static_cast<float>(g))
+        + (0.07f * static_cast<float>(b)));
 }
 
 void ColorRgb::setRgba(int r, int g, int b, int a)
@@ -65,4 +68,12 @@ void ColorRgb::setGray(int gray)
     r = gray;
     g = gray;
     b = gray;
+}
+
+std::string ColorRgb::toString()
+{
+    std::ostringstream s;
+    s << r << "," << g << "," << b;
+
+    return s.str();
 }

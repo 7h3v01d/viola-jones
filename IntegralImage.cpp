@@ -43,9 +43,9 @@ int IntegralImage::getInt(int x, int y) const
 int IntegralImage::getIntegral(int x, int y) const
 {
     if (x >= width
-            || y >= height
-            || x < 0
-            || y < 0) {
+        || y >= height
+        || x < 0
+        || y < 0) {
         throw std::out_of_range(std::string("invalid coordinates"));
     }
 
@@ -77,9 +77,9 @@ IntegralImage IntegralImage::fromImage(const Image& image)
     for (int y = 0; y < image.getHeight(); ++y) {
         for (int x = 0; x < image.getWidth(); ++x) {
             integral.integrals[(y * image.getWidth()) + x] = image.getColor(x, y).getGray()
-                    + integral.getInt(x - 1, y)
-                    + integral.getInt(x, y - 1)
-                    - integral.getInt(x - 1, y - 1);
+                + integral.getInt(x - 1, y)
+                + integral.getInt(x, y - 1)
+                - integral.getInt(x - 1, y - 1);
         }
     }
 

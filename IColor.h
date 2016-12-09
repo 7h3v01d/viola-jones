@@ -1,6 +1,8 @@
 #ifndef __ICOLOR_H__
 #define __ICOLOR_H__
 
+#include <string>
+
 class IColor
 {
     public:
@@ -12,6 +14,7 @@ class IColor
         virtual int getGray() const = 0;
         virtual void setRgba(int r, int g, int b, int a) = 0;
         virtual void setGray(int gray) = 0;
+        virtual std::string toString() = 0;
 
     public:
         virtual ~IColor() {}

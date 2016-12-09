@@ -1,6 +1,8 @@
 #ifndef __COLORRGB_H__
 #define __COLORRGB_H__
 
+#include <string>
+
 #include "IColor.h"
 
 class ColorRgb:
@@ -20,6 +22,7 @@ class ColorRgb:
         int getGray() const;
         void setRgba(int r, int g, int b, int a);
         void setGray(int gray);
+        std::string toString();
 
     public:
         ColorRgb();

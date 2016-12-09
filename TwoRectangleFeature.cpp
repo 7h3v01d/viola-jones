@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <sstream>
 #include <string>
 
 #include "TwoRectangleFeature.h"
@@ -41,4 +42,13 @@ Rectangle& TwoRectangleFeature::getFirstRectangle() const
 Rectangle& TwoRectangleFeature::getSecondRectangle() const
 {
     return second;
+}
+
+std::string TwoRectangleFeature::toString() const
+{
+    std::ostringstream s;
+    s << first.toString() << "\n";
+    s << second.toString();
+
+    return s.str();
 }

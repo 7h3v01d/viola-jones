@@ -2,6 +2,7 @@
 #define __CASCADE_H__
 
 #include <vector>
+#include <string>
 
 #include "Stage.h"
 
@@ -17,6 +18,7 @@ class Cascade
         int getDetectorHeight() const;
         int getStageCount() const;
         Stage& getStage(int number) const;
+        std::string toString() const;
 
     private:
         Cascade();

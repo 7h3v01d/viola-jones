@@ -1,3 +1,6 @@
+#include <sstream>
+#include <string>
+
 #include "WeakClassifier.h"
 
 WeakClassifier::WeakClassifier(IFeature& feature, double threshold, double passWeight, double failWeight):
@@ -30,4 +33,13 @@ double WeakClassifier::getPassWeight() const
 double WeakClassifier::getFailWeight() const
 {
     return failWeight;
+}
+
+std::string WeakClassifier::toString() const
+{
+    std::ostringstream s;
+    s << feature.toString() << "\n";
+    s << threshold << " " << passWeight << " " << failWeight;
+
+    return s.str();
 }

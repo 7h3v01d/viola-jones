@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <sstream>
 #include <string>
 
 #include "Cascade.h"
@@ -39,4 +40,18 @@ Stage& Cascade::getStage(int number) const
     }
 
     return stages[number];
+}
+
+std::string Cascade::toString() const
+{
+    std::ostringstream s;
+    s << detectorWidth << "x" << detectorHeight << "\n";
+    for (int i = 0; i < static_cast<int>(stages.size()); ++i) {
+        s << stages[i].toString();
+        if (i < static_cast<int>(stages.size()) - 1) {
+            s << "\n";
+        }
+    }
+
+    return s.str();
 }

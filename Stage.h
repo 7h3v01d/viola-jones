@@ -2,6 +2,7 @@
 #define __STAGE_H__
 
 #include <vector>
+#include <string>
 
 #include "WeakClassifier.h"
 
@@ -15,6 +16,7 @@ class Stage
         int getWeakClassifierCount() const;
         WeakClassifier& getWeakClassifier(int number) const;
         double getThreshold() const;
+        std::string toString() const;
 
     private:
         Stage();
